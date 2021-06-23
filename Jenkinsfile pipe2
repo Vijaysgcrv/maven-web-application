@@ -43,4 +43,22 @@ stages{
   }
  }
  }
+ 
+post{
+
+ success{
+ emailext body: '''Build is Over - Success!!
+
+ Regards,
+ Mithun Technologies,
+ 9980923226''', subject: 'Build is Over - Scuess!!', to: 'devopstrainingblr@gmail.com'
+ }
+ failure{
+ emailext body: '''Build is Over - Failed!!
+
+ Regards,
+ Mithun Technologies,
+ 9980923226''', subject: 'Build is Over - Failed!!', to: 'devopstrainingblr@gmail.com'
+ }
+ 
  }
