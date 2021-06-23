@@ -43,5 +43,8 @@ stages{
   }
  }
  }
+ post{
+ emailext body: 'build succes', subject: 'build voer', to: 'vijaysgcrv@gmail.com'
+ }
 
  }
