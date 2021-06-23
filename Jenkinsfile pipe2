@@ -1,0 +1,44 @@
+  
+pipeline{
+
+agent any
+
+triggers{
+ pollSCM('* * * * *')
+}
+
+options{
+timestamps()
+buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+}
+
+tools{
+maven "maven3.8.1"
+}
+
+stages{
+
+ stage('CheckoutCode'){
+ steps{
+  
+ }
+ }
+ 
+ stage('Build'){
+  steps{
+  bat "mvn clean package"
+  }
+ }
+
+/*
+  stage('ExecuteSonarQubeReport'){
+  steps{
+  bat "mvn clean sonar:sonar"
+  }
+ }
+ 
+ stage('UploadArtifactIntoNexus'){
+  steps{
+  bat "mvn clean deploy"
+  }
+ 
